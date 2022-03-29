@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Borrar entrada al Spring Journal</title>
+</head>
+<body>
+<h1>Borrar</h1>
+<form action="#" th:action="@{/borrarEntrada.html}" th:object="${persona}" method="delete">
+
+    <label for="id">identificacion</label>
+    <input type="text" th:field="*{}" id="id"/>
+
+
+
+    <input type="submit" value="add entry">
+</form>
+</body>
+</html>

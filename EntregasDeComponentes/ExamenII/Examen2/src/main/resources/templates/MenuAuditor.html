@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="Content-Type" content="text/html"></meta>
+    <title>Examen II Menu Auditores</title>
+</head>
+<body>
+<div>
+    <h1>Menu de auditores</h1>
+    <a href="/">Volver</a>
+    <a href="/agregarEntradaA">Add entry</a>
+    <ul>
+        <div th:each="entry,status : ${Auditor}">
+            <li>
+                <div></div>
+                <div>
+                    <div>
+                        <h4><span th:text="${entry.nombre}">nombre</span></h4>
+
+                    </div>
+                    <div class="tl-body">
+                        <p><span th:text="${entry.direccion}">Direccion</span></p>
+                        <p><span th:text="${entry.apellido1}">Primer Apellido</span></p>
+                        <p><span th:text="${entry.apellido2}">Segundo Apellido</span></p>
+                        <p><span th:text="${entry.numero}">Segundo Apellido</span></p>
+                        <p><span th:text="${entry.email}">Segundo Apellido</span></p>
+                        <p><span th:text="${entry.DViaje}">Segundo Apellido</span></p>
+                        <p><span th:text="${entry.especialidad}">Segundo Apellido</span></p>
+                        <p><span th:text="${entry.FNacimiento}">Fecha de nacimiento</span></p>
+                        <p><span th:text="${entry.estado}">Estado del consultor</span></p>
+                    </div>
+
+                </div>
+                <a th:href="@{/editarA/{id}(id=${entry.id})}">Editar </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a th:href="@{/borrarA/{id}(id=${entry.id})}">Cambiar estado </a>
+            </li>
+        </div>
+    </ul>
+</div>
+</body>
+</html>

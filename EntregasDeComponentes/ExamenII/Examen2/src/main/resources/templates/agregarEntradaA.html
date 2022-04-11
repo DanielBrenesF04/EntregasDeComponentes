@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Agregar entrada al Spring Persona</title>
+</head>
+<body>
+<h1>Insertar</h1>
+<form action="#" th:action="@{/agregarEntradaA}" th:object="${auditor}" method="post">
+    <label for="nombre">Nombre</label>
+    <input type="text" th:field="*{nombre}" id="nombre"/>
+
+    <label for="apellido1">Primer Apellido</label>
+    <input type="text" th:field="*{apellido1}" id="apellido1"/>
+
+    <label for="apellido2">Segundo Apellido</label>
+    <input type="text" th:field="*{apellido2}" id="apellido2"/>
+
+    <label for="numero">Numero telefonico</label>
+    <input type="text" th:field="*{numero}" id="numero"/>
+
+    <label for="correo">Correo Electronico</label>
+    <input type="text" th:field="*{email}" id="correo"/>
+
+    <label for="viaje">Disponibilidad de viaje</label>
+    <input type="text" th:field="*{DViaje}" id="viaje"/>
+
+    <label for="Especialidad">Zona de especialidad</label>
+    <input type="text" th:field="*{especialidad}" id="Especialidad"/>
+
+    <label for="direccion">Direccion</label>
+    <input type="text" th:field="*{direccion}" id="direccion"/>
+
+    <label for="Fnacimiento">Fecha de nacimiento</label>
+    <input type="text" th:field="*{FNacimiento}" id="Fnacimiento"/>
+
+    <input type="submit" value="add entry">
+</form>
+<a href="/">Volver al principal</a>
+</body>
+</html>

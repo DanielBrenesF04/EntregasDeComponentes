@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Agregar entrada al Spring Journal</title>
+</head>
+<body>
+<h1>Insertar</h1>
+<form action="#" th:action="@{/agregarEntradaC}" th:object="${cliente}" method="post">
+
+
+    <label for="razon">Razon juridica</label>
+    <input type="text" th:field="*{razon}" id="razon"/>
+    <label for="cJuridica">Cedula juridica</label>
+    <input type="text" th:field="*{CJuridica}" id="cJuridica"/>
+    <label for="direccion">Direccion</label>
+    <input type="text" th:field="*{direccion}" id="direccion"/>
+    <label for="telefono">Numero telefonico</label>
+    <input type="text" th:field="*{telefono}" id="telefono"/>
+
+    <input type="submit" value="add entry">
+
+</form>
+<a href="/">Volver al principal</a>
+</body>
+</html>

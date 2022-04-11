@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="Content-Type" content="text/html"></meta>
+    <title>Menu personas</title>
+</head>
+<body>
+<div>
+    <h1>Spring Boot Journal</h1>
+    <a href="/agregarEntradaC">Add entry</a>
+    <ul>
+        <div th:each="entry,status : ${cliente}">
+            <li>
+                <div></div>
+                <div>
+                    <div>
+                        <h4><span th:text="${entry.id}">TITLE</span></h4>
+                    </div>
+                    <div class="tl-body">
+                        <p><span th:text="${entry.razon}">Cedula juridica</span></p>
+                        <p><span th:text="${entry.CJuridica}">Cedula juridica</span></p>
+                        <p><span th:text="${entry.direccion}">Direccion</span></p>
+                        <p><span th:text="${entry.telefono}">Numero de telefono</span></p>
+                    </div>
+                    <p>Cantidad de personas de contactos <span th:text="${entry.pcontactos.size()}"></span></p>
+                </div>
+                <a th:href="@{/editarC/{id}(id=${entry.id})}">Editar</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a th:href="@{/borrarC/{id}(id=${entry.id})}">Borrar</a>
+            </li>
+        </div>
+    </ul>
+</div>
+</body>
+</html>

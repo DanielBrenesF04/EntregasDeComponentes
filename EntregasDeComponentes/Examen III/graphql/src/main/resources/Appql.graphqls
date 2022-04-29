@@ -1,0 +1,87 @@
+type Padre {
+    id: ID!,
+	nombre: String!,
+	cedula: String!,
+	direccion: String!,
+	Tprimario: String!,
+	Tsecundario: String
+}
+
+type Libro {
+    id: ID!,
+	nombre: String,
+	estado: String!,
+	autor: String,
+	descripcion: String,
+	launchDate: String
+}
+
+type Hijo {
+    id: ID!,
+	nombre: String!,
+	tUsaurio: String!,
+	alergias: String!,
+	idPadre: Int!,
+	liborsLeidos: String,
+	cLeidos: Int!
+}
+
+type Query{
+	padres(count: Int):[Padre],
+	libros(count: Int):[Libro],
+	hijos(count: Int):[Hijo]
+}
+
+
+
+
+
+input FilterField {
+  value: String!
+}
+
+type Mutation {
+	createPadre(nombre: String!,
+                    cedula: String!,
+					direcion: String!,
+                    Tprimario: String!
+					Tsecundario: String): Padre,
+	deletePadre(id: ID!): Padre,
+    updatePadre(id: ID!,
+                    nombre: String!,
+                    cedula: String!,
+					direcion: String!,
+                    Tprimario: String!,
+					Tsecundario: String): Padre,
+    crearLibro(nombre: String!,
+                    autor: String,
+					descipcion: String,
+                    launchDate: String): Libro,
+
+    deactivarLibro(id: ID!): Libro,
+
+	updateLibro(id: ID!,
+	                nombre: String!,
+                    autor: String,
+					descipcion: String,
+                    launchDate: String): Libro,	
+	createHijo(nombre: String!,
+                    tUsaurio: String!,
+					alergias: String!,
+                    idPadre: Int!
+					liborsLeidos: String,
+					cLeidos: Int!): Hijo,
+	agregarLibro(id:ID!,
+	             liborsLeidos:String):Hijo,
+	updateHijo(id:ID!
+	                nombre: String!,
+                    tUsaurio: String!,
+					alergias: String!,
+                    idPadre: Int!
+					liborsLeidos: String,
+					cLeidos: Int!): Hijo
+
+
+					
+					
+}

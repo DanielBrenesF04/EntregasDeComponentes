@@ -1,0 +1,197 @@
+
+
+
+query{
+  libros(count: 10) {
+    id
+    nombre
+    estado
+	autor
+  }
+}
+
+
+query{
+  padres(count: 10) {
+    id
+    nombre
+    cedula
+	Tprimario
+	direcion
+  }
+}
+
+query{
+  hijos(count: 10) {
+    id
+    nombre
+    tUsaurio
+    alergias
+    idPadre
+    liborsLeidos
+  }
+}
+
+
+query{
+  hijos(count: 10) {
+    nombre
+    cLeidos
+  }
+}
+
+
+
+///Create Libros
+
+mutation {
+  crearLibro(nombre: "La bella y la bestia", autor: "Gabrielle-Suzanne de Villeneuve", descipcion: "¡Bella y Bestia son!", launchDate: "1923-04-16") {
+    id
+  }
+}
+
+mutation {
+  crearLibro(nombre: "Blanca nieves y los siete enanos", autor: "Jacob y Wilhelm Grimm", descipcion: "¡Una joven perseguida se esonde en una cabaña en medio del bosque!", launchDate: "1934-02-04") {
+    id
+  }
+}
+
+mutation {
+  crearLibro(nombre: "La espada en la piedra", autor: "Tim. H. White", descipcion: "Con la muerte de Uther Pendragón, un reino deseperado comienza un busque de un rey nuevo, por medio de una prueba bastante dificil", launchDate: "1938-12-24") {
+    id
+  }
+}
+
+
+///Create padres
+
+mutation {
+  createPadre(nombre: "Laura", cedula: "18180211", direcion: "Heredia san francisco", Tprimario: "85104612",Tsecundario: "91351294") {
+    id
+  }
+}
+
+mutation {
+  createPadre(nombre: "Carlos", cedula: "17830019", direcion: "Heredia Santa Barbara", Tprimario: "95127912",Tsecundario: "12092355") {
+    id
+  }
+}
+
+///Create Hijos
+
+mutation {
+  createHijo(nombre: "Jose", tUsaurio: "Guarderia", alergias: "Camarones", idPadre: 1,liborsLeidos: "La bella y la bestia",cLeidos :1) {
+    id
+  }
+}
+
+mutation {
+  createHijo(nombre: "Manuel", tUsaurio: "Guarderia", alergias: "Lactosa", idPadre: 5,liborsLeidos: "La bella y la bestia",cLeidos :1) {
+    id
+  }
+}
+
+
+
+mutation{
+  updatePadre(id:1,nombre: "Maria", cedula: "18180211", direcion: "Heredia san francisco", Tprimario: "85104612",Tsecundario: "91351294"){
+    id
+  }
+}
+
+
+
+mutation{
+  updateHijo(id: 1,nombre: "Mario", tUsaurio: "Guarderia", alergias: "Camarones", idPadre: 1,liborsLeidos: "La bella y la bestia",cLeidos :1){
+    id
+  }
+}
+
+
+mutation{
+  updateLibro(id: 1,nombre: "La bella y la bestia", autor: "Gabrielle-Suzanne de Villeneuve", descipcion: "¡Bella y Bestia son!", launchDate: "1913-04-16"){
+    id
+  }
+}
+
+///Libro leido
+
+
+mutation {
+  agregarLibro(id: 1,liborsLeidos: "Blanca nieves y los siente enanos") {
+    id
+  }
+}
+
+
+mutation {
+  agregarLibro(id: 2,liborsLeidos: "Blanca nieves y los siete enanos") {
+    id
+  }
+}
+
+
+///Deactivar Libro
+
+mutation {
+  deactivarLibro(id: ?) {
+    id
+  }
+}
+
+mutation {
+  deletePadre(id: ?) {
+    id
+  }
+}
+
+mutation {
+  deleteHijo(id: ?) {
+    id
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	createHijo(nombre: String!,
+                    tUsaurio: String!,
+					alergias: String!,
+                    idPadre: Int!
+					liborsLeidos: String,
+					cLeidos: Int!): Hijo
+
+
+	padres(count: Int):[Padre],
+    padre(id: ID): Padre
+	
+	libros(count: Int):[Libro],
+    libro(id: ID): Libro
+	
+	
+	,
+	libros(count: Int):[Libro],
+	libro(id: ID): Libro,
+	hijos(count: Int):[Hijo],
+	hijo(id: ID): Hijo

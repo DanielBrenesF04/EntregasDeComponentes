@@ -80,8 +80,7 @@ type Mutation {
                     idPadre: Int!
 					liborsLeidos: String,
 					cLeidos: Int!): Hijo
-
-
+	deleteHijo(id: ID!): Hijo,
 					
 					
 }
